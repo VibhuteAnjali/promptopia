@@ -1,4 +1,5 @@
 "use client";
+import dynamic from "next/dynamic";
 import Form from "@components/Form";
 import React, { useEffect, useState, Suspense } from "react";
 import { useSession } from "next-auth/react";
@@ -68,5 +69,11 @@ const EditPrompt = () => {
     </Suspense>
   );
 };
+
+// const EditProfileWrapper = () => (
+//   <Suspense fallback={<div>Loading...</div>}>
+//     <EditPrompt />
+//   </Suspense>
+// );
 
 export default EditPrompt;

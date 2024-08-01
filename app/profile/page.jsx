@@ -143,20 +143,23 @@ const MyProfile = () => {
   };
 
   return (
-    <Profile
-      name={profileName}
-      desc="Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination"
-      data={myPosts}
-      handleEdit={handleEdit}
-      handleDelete={handleDelete}
-    />
+    <Suspense>
+      <Profile
+        name={profileName}
+        desc="Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination"
+        data={myPosts}
+        handleEdit={handleEdit}
+        handleDelete={handleDelete}
+      />
+    </Suspense>
   );
 };
 
-const MyProfileWrapper = () => (
-  <Suspense fallback={<div>Loading...</div>}>
-    <MyProfile />
-  </Suspense>
-);
+// const MyProfileWrapper = () => (
+//   <Suspense fallback={<div>Loading...</div>}>
+//     <MyProfile />
+//   </Suspense>
+// );
 
-export default dynamic(() => Promise.resolve(MyProfileWrapper), { ssr: false });
+// export default dynamic(() => Promise.resolve(MyProfileWrapper), { ssr: false });
+export default MyProfile;
